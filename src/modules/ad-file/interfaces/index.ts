@@ -1,0 +1,5 @@
+export * from './ad-file-create.interfaces'
+export * from './ad-file-delete.interfaces'
+export * from './ad-file-find-all.interfaces'
+export * from './ad-file-find-one.interfaces'
+export * from './ad-file-update.interfaces'

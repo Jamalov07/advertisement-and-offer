@@ -1,0 +1,5 @@
+export * from './ad-category-create.interfaces'
+export * from './ad-category-delete.interfaces'
+export * from './ad-category-find-all.interfaces'
+export * from './ad-category-find-one.interfaces'
+export * from './ad-category-update.interfaces'

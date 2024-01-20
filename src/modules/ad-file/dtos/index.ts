@@ -1,0 +1,5 @@
+export * from './ad-file-create.dtos'
+export * from './ad-file-delete.dtos'
+export * from './ad-file-find-all.dtos'
+export * from './ad-file-find-one.dtos'
+export * from './ad-file-update.dtos'
