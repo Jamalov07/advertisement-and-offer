@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { appConfig } from './configs'
-import { RoleModule, UserModule } from './modules'
+import { AdModule, PermissionModule, RoleModule, UserModule } from './modules'
 import { SharedModule } from './shared'
 
 @Module({
@@ -13,6 +13,8 @@ import { SharedModule } from './shared'
 		SharedModule,
 		RoleModule,
 		UserModule,
+		AdModule,
+		PermissionModule,
 	],
 	controllers: [],
 	providers: [],
