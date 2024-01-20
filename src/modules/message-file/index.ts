@@ -1,0 +1,5 @@
+export * from './message-file.service'
+export * from './message-file.controller'
+export * from './message-file.module'
+export * from './interfaces'
+export * from './dtos'

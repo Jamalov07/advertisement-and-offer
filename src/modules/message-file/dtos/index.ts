@@ -1,0 +1,5 @@
+export * from './message-file-create.dtos'
+export * from './message-file-delete.dtos'
+export * from './message-file-find-all.dtos'
+export * from './message-file-find-one.dtos'
+export * from './message-file-update.dtos'
