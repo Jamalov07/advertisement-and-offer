@@ -1,4 +1,4 @@
-import { IsOptional, IsUUID } from 'class-validator'
+import { IsOptional, IsString, IsUUID } from 'class-validator'
 import { MessageUpdateRequest } from '../interfaces'
 
 export class MessageUpdateRequestDto implements MessageUpdateRequest {
@@ -9,4 +9,8 @@ export class MessageUpdateRequestDto implements MessageUpdateRequest {
 	@IsUUID('4')
 	@IsOptional()
 	to_user_id: string
+
+	@IsString()
+	@IsOptional()
+	message?: string
 }

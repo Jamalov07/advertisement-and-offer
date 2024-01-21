@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Patch, Query } from '@nestjs/common'
 import { RoleService } from './role.service'
 import { RoleCreateRequestDto, RoleDeleteRequestDto, RoleFindAllRequestDto, RoleFindOneRequestDto, RoleUpdateRequestDto } from './dtos'
 import { RoleCreateResponse, RoleDeleteResponse, RoleFindAllResponse, RoleFindOneResponse, RoleUpdateResponse } from './interfaces'
@@ -24,7 +24,7 @@ export class RoleController {
 		return this.roleService.create({ ...payload })
 	}
 
-	@Put(':id')
+	@Patch(':id')
 	update(@Param() params: RoleFindOneRequestDto, @Body() payload: RoleUpdateRequestDto): Promise<RoleUpdateResponse> {
 		return this.roleService.update({ ...params }, { ...payload })
 	}

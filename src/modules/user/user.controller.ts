@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Patch, Query } from '@nestjs/common'
 import { UserService } from './user.service'
 import { UserCreateRequestDto, UserDeleteRequestDto, UserFindAllRequestDto, UserFindOneRequestDto, UserUpdateRequestDto } from './dtos'
 import { UserCreateResponse, UserDeleteResponse, UserFindAllResponse, UserFindOneResponse, UserUpdateResponse } from './interfaces'
@@ -30,7 +30,7 @@ export class UserController {
 		return this.userService.create({ ...payload })
 	}
 
-	@Put(':id')
+	@Patch(':id')
 	update(@Param() params: UserFindOneRequestDto, @Body() payload: UserUpdateRequestDto): Promise<UserUpdateResponse> {
 		return this.userService.update({ ...params }, { ...payload })
 	}

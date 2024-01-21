@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Patch, Query } from '@nestjs/common'
 import { AdCategoryService } from './ad-category.service'
 import { AdCategoryCreateRequestDto, AdCategoryDeleteRequestDto, AdCategoryFindAllRequestDto, AdCategoryFindOneRequestDto, AdCategoryUpdateRequestDto } from './dtos'
 import { AdCategoryCreateResponse, AdCategoryDeleteResponse, AdCategoryFindAllResponse, AdCategoryFindOneResponse, AdCategoryUpdateResponse } from './interfaces'
@@ -24,7 +24,7 @@ export class AdCategoryController {
 		return this.adCategoryService.create({ ...payload })
 	}
 
-	@Put(':id')
+	@Patch(':id')
 	update(@Param() params: AdCategoryFindOneRequestDto, @Body() payload: AdCategoryUpdateRequestDto): Promise<AdCategoryUpdateResponse> {
 		return this.adCategoryService.update({ ...params }, { ...payload })
 	}

@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Patch, Query } from '@nestjs/common'
 import { AdService } from './ad.service'
 import { AdCreateRequestDto, AdDeleteRequestDto, AdFindAllRequestDto, AdFindOneRequestDto, AdUpdateRequestDto } from './dtos'
 import { AdCreateResponse, AdDeleteResponse, AdFindAllResponse, AdFindOneResponse, AdUpdateResponse } from './interfaces'
@@ -27,10 +27,10 @@ export class AdController {
 
 	@Post()
 	create(@Body() payload: AdCreateRequestDto): Promise<AdCreateResponse> {
-		return this.adService.create({ ...payload })
+		return this.adService.create({ ...payload, expired_date: new Date(payload.expired_date) })
 	}
 
-	@Put(':id')
+	@Patch(':id')
 	update(@Param() params: AdFindOneRequestDto, @Body() payload: AdUpdateRequestDto): Promise<AdUpdateResponse> {
 		return this.adService.update({ ...params }, { ...payload })
 	}

@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Patch, Query } from '@nestjs/common'
 import { MessageService } from './message.service'
 import { MessageCreateRequestDto, MessageDeleteRequestDto, MessageFindAllRequestDto, MessageFindOneRequestDto, MessageUpdateRequestDto } from './dtos'
 import { MessageCreateResponse, MessageDeleteResponse, MessageFindAllResponse, MessageFindOneResponse, MessageUpdateResponse } from './interfaces'
@@ -24,7 +24,7 @@ export class MessageController {
 		return this.messageService.create({ ...payload })
 	}
 
-	@Put(':id')
+	@Patch(':id')
 	update(@Param() params: MessageFindOneRequestDto, @Body() payload: MessageUpdateRequestDto): Promise<MessageUpdateResponse> {
 		return this.messageService.update({ ...params }, { ...payload })
 	}

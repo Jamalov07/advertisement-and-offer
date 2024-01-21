@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Patch, Query } from '@nestjs/common'
 import { PermissionService } from './permission.service'
 import { PermissionCreateRequestDto, PermissionDeleteRequestDto, PermissionFindAllRequestDto, PermissionFindOneRequestDto, PermissionUpdateRequestDto } from './dtos'
 import { PermissionCreateResponse, PermissionDeleteResponse, PermissionFindAllResponse, PermissionFindOneResponse, PermissionUpdateResponse } from './interfaces'
@@ -29,7 +29,7 @@ export class PermissionController {
 		return this.permissionService.create({ ...payload })
 	}
 
-	@Put(':id')
+	@Patch(':id')
 	update(@Param() params: PermissionFindOneRequestDto, @Body() payload: PermissionUpdateRequestDto): Promise<PermissionUpdateResponse> {
 		return this.permissionService.update({ ...params }, { ...payload })
 	}

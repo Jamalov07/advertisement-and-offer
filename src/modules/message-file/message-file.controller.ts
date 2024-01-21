@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Patch, Query } from '@nestjs/common'
 import { MessageFileService } from './message-file.service'
 import { MessageFileCreateRequestDto, MessageFileDeleteRequestDto, MessageFileFindAllRequestDto, MessageFileFindOneRequestDto, MessageFileUpdateRequestDto } from './dtos'
 import { MessageFileCreateResponse, MessageFileDeleteResponse, MessageFileFindAllResponse, MessageFileFindOneResponse, MessageFileUpdateResponse } from './interfaces'
@@ -24,7 +24,7 @@ export class MessageFileController {
 		return this.messageFileService.create({ ...payload })
 	}
 
-	@Put(':id')
+	@Patch(':id')
 	update(@Param() params: MessageFileFindOneRequestDto, @Body() payload: MessageFileUpdateRequestDto): Promise<MessageFileUpdateResponse> {
 		return this.messageFileService.update({ ...params }, { ...payload })
 	}

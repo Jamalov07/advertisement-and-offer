@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsUUID } from 'class-validator'
+import { IsNotEmpty, IsString, IsUUID } from 'class-validator'
 import { MessageCreateRequest } from '../interfaces'
 
 export class MessageCreateRequestDto implements MessageCreateRequest {
@@ -9,4 +9,8 @@ export class MessageCreateRequestDto implements MessageCreateRequest {
 	@IsUUID('4')
 	@IsNotEmpty()
 	to_user_id: string
+
+	@IsString()
+	@IsNotEmpty()
+	message: string
 }

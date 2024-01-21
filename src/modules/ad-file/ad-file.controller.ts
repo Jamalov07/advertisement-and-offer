@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Patch, Query } from '@nestjs/common'
 import { AdFileService } from './ad-file.service'
 import { AdFileCreateRequestDto, AdFileDeleteRequestDto, AdFileFindAllRequestDto, AdFileFindOneRequestDto, AdFileUpdateRequestDto } from './dtos'
 import { AdFileCreateResponse, AdFileDeleteResponse, AdFileFindAllResponse, AdFileFindOneResponse, AdFileUpdateResponse } from './interfaces'
@@ -24,7 +24,7 @@ export class AdFileController {
 		return this.adFileService.create({ ...payload })
 	}
 
-	@Put(':id')
+	@Patch(':id')
 	update(@Param() params: AdFileFindOneRequestDto, @Body() payload: AdFileUpdateRequestDto): Promise<AdFileUpdateResponse> {
 		return this.adFileService.update({ ...params }, { ...payload })
 	}

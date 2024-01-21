@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Patch, Query } from '@nestjs/common'
 import { OfferService } from './offer.service'
 import { OfferCreateRequestDto, OfferDeleteRequestDto, OfferFindAllRequestDto, OfferFindOneRequestDto, OfferUpdateRequestDto } from './dtos'
 import { OfferCreateResponse, OfferDeleteResponse, OfferFindAllResponse, OfferFindOneResponse, OfferUpdateResponse } from './interfaces'
@@ -29,7 +29,7 @@ export class OfferController {
 		return this.offerService.create({ ...payload })
 	}
 
-	@Put(':id')
+	@Patch(':id')
 	update(@Param() params: OfferFindOneRequestDto, @Body() payload: OfferUpdateRequestDto): Promise<OfferUpdateResponse> {
 		return this.offerService.update({ ...params }, { ...payload })
 	}
