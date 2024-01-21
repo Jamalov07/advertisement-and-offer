@@ -5,7 +5,7 @@ export async function up(knex: Knex): Promise<void> {
 		table.uuid('id', { primaryKey: true }).defaultTo(knex.raw('uuid_generate_v4()'))
 		table.string('description', 255).notNullable()
 		table.integer('price').notNullable()
-		table.integer('ad_id').notNullable()
+		table.uuid('ad_id').unsigned().references('id').inTable('ads').notNullable()
 		table.dateTime('deadline').notNullable()
 		table.boolean('is_view').defaultTo(false)
 		table.boolean('is_best').defaultTo(false)

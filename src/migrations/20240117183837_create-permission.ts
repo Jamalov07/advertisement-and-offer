@@ -5,7 +5,7 @@ export async function up(knex: Knex): Promise<void> {
 		table.uuid('id', { primaryKey: true }).defaultTo(knex.raw('uuid_generate_v4()'))
 		table.enum('method', ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']).notNullable()
 		table.string('url', 100).notNullable()
-		table.integer('role_id').notNullable()
+		table.uuid('role_id').unsigned().references('id').inTable('roles').notNullable()
 		table.timestamps(true, true)
 		table.dateTime('deleted_at')
 	})
